@@ -1,5 +1,5 @@
-# UUID          Group Name
-False 	Non-Interactive Users
-a15ace64b0442f70ce157241e1d431c0ace2df7b       	openstack/heat-agents-distgit-core
-b662df3b7d8eed8b0e0cbaeb172886b641dc3aa2        	openstack/heat-agents-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+a15ace64b0442f70ce157241e1d431c0ace2df7b	openstack/heat-agents-distgit-core
+b662df3b7d8eed8b0e0cbaeb172886b641dc3aa2	openstack/heat-agents-distgit-ptl
+global:Registered-Users                 	Registered Users

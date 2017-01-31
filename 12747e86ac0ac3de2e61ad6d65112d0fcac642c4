@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baada198_a7da74e7",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-01-31T22:09:24Z",
+      "side": 1,
+      "message": "All of the above lines should be removed on rpm-master,\nit is inserted (eventually automatically by rdopkg) on distgit release branches ($release-rdo) when doing RPM builds from a git snapshots (but ideally upstream project would be releasing regularly maintenance release so that won\u0027t be needed).",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 35
+      },
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_c7d768be",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-01-31T22:09:24Z",
+      "side": 1,
+      "message": "NB we should also drop o-h-t from rdoinfo for Ocata in the same rdoinfo review in step 5 of https://www.rdoproject.org/documentation/rdo-packaging/#how-to-add-a-new-package-to-rdo-trunk",
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_e7e46cae",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-01-31T22:09:24Z",
+      "side": 1,
+      "message": "If main package is just readme, does it need to exist at all\ni.e. why wouldn\u0027t python-heat-agent be the main package?\n\nok, I see this was suggested in the BZ review but answer was Meh :)",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_07e2409f",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-01-31T22:09:24Z",
+      "side": 1,
+      "message": "you can drop this line in all python-heat-agent-* subpackages since they all require python-heat-agent \"base\" package:\nhttps://fedoraproject.org/wiki/Packaging:LicensingGuidelines#Subpackage_Licensing",
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}

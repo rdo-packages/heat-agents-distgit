@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "baada198_a701943b",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 83
+      },
+      "writtenOn": "2017-01-31T22:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baada198_a7da74e7",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 35
+      },
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baada198_c7d768be",
         "filename": "openstack-heat-agents.spec",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-01-31T22:09:24Z",
       "side": 1,
       "message": "NB we should also drop o-h-t from rdoinfo for Ocata in the same rdoinfo review in step 5 of https://www.rdoproject.org/documentation/rdo-packaging/#how-to-add-a-new-package-to-rdo-trunk",
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_c7fe8838",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 83
+      },
+      "writtenOn": "2017-01-31T22:44:46Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "baada198_c7d768be",
       "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "baada198_47f35873",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 83
+      },
+      "writtenOn": "2017-01-31T22:44:46Z",
+      "side": 1,
+      "message": "The main package also Requires all of the subpackages, so it\u0027s a way of installing everything in one go.",
+      "parentUuid": "baada198_e7e46cae",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baada198_07e2409f",
         "filename": "openstack-heat-agents.spec",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2017-01-31T22:09:24Z",
       "side": 1,
       "message": "you can drop this line in all python-heat-agent-* subpackages since they all require python-heat-agent \"base\" package:\nhttps://fedoraproject.org/wiki/Packaging:LicensingGuidelines#Subpackage_Licensing",
+      "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_87ed708e",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 83
+      },
+      "writtenOn": "2017-01-31T22:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baada198_07e2409f",
       "revId": "12747e86ac0ac3de2e61ad6d65112d0fcac642c4",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false

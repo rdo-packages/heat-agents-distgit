@@ -22,6 +22,30 @@
       "revId": "929385d2710044206d1f1e8c2e05426e2cd07c08",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac7a964_bcc60948",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 83
+      },
+      "writtenOn": "2017-02-14T14:25:55Z",
+      "side": 1,
+      "message": "I believe you\u0027re correct. Since this is just copied directly from the openstack-heat-templates spec file, perhaps we could submit this as a follow-up bug fix in a separate patch?",
+      "parentUuid": "7ac7a964_5c5895fa",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "929385d2710044206d1f1e8c2e05426e2cd07c08",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }

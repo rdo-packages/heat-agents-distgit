@@ -85,6 +85,8 @@ deployments to perform script based configuration tasks.
 %{_libexecdir}/os-apply-config/templates/var/run/heat-config/heat-config
 %{_libexecdir}/os-refresh-config/configure.d/20-os-apply-config
 %{_libexecdir}/os-refresh-config/configure.d/55-heat-config
+%dir %{_libexecdir}/heat-config
+%dir %{_libexecdir}/heat-config/hooks
 %{_libexecdir}/heat-config/hooks/script
 
 %package -n python-heat-agent-puppet

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ac7a964_5c5895fa",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-02-14T12:44:08Z",
+      "side": 1,
+      "message": "Are directories %{_libexecdir}/heat-config and %{_libexecdir}/heat-config/hooks unowned (https://fedoraproject.org/wiki/Packaging:UnownedDirectories)?, i don\u0027t see them in other packages so they should be explicitely included.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "929385d2710044206d1f1e8c2e05426e2cd07c08",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}

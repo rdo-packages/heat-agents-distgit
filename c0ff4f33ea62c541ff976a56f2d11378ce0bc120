@@ -39,6 +39,30 @@
       "revId": "c0ff4f33ea62c541ff976a56f2d11378ce0bc120",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac7a964_4acc4336",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 83
+      },
+      "writtenOn": "2017-02-15T18:56:55Z",
+      "side": 1,
+      "message": "Ah, yep. We didn\u0027t have any tarballs yet at the time I submitted this review, but now we do :)",
+      "parentUuid": "7ac7a964_8a5f3b72",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 107
+      },
+      "revId": "c0ff4f33ea62c541ff976a56f2d11378ce0bc120",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }

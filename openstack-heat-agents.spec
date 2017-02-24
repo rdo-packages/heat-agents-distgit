@@ -18,6 +18,7 @@ Requires: python-heat-agent-puppet = %{version}-%{release}
 Requires: python-heat-agent-ansible = %{version}-%{release}
 Requires: python-heat-agent-apply-config = %{version}-%{release}
 Requires: python-heat-agent-hiera = %{version}-%{release}
+Requires: python-heat-agent-json-file = %{version}-%{release}
 Requires: python-heat-agent-docker-cmd = %{version}-%{release}
 
 %description
@@ -56,6 +57,9 @@ install -p -D -m 755 heat-config-apply-config/install.d/hook-apply-config.py %{b
 
 # hook to perform configuration with hiera
 install -p -D -m 755 heat-config-hiera/install.d/hook-hiera.py %{buildroot}%{_libexecdir}/heat-config/hooks/hiera
+
+# hook to perform configuration with json-file
+install -p -D -m 755 heat-config-json-file/install.d/hook-json-file.py %{buildroot}%{_libexecdir}/heat-config/hooks/json-file
 
 # hook to perform configuration with docker commands
 install -p -D -m 755 heat-config-docker-cmd/os-refresh-config/configure.d/50-heat-config-docker-cmd %{buildroot}%{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
@@ -136,6 +140,17 @@ deployments to perform hiera based configuration tasks.
 
 %files -n python-heat-agent-hiera
 %{_libexecdir}/heat-config/hooks/hiera
+
+%package -n python-heat-agent-json-file
+Summary: Agent for performing json-file based Heat software deployments
+Requires: python-heat-agent
+
+%description -n python-heat-agent-json-file
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform json-file based configuration tasks.
+
+%files -n python-heat-agent-json-file
+%{_libexecdir}/heat-config/hooks/json-file
 
 %package -n python-heat-agent-docker-cmd
 Summary: Agent for performing Docker based Heat software deployments

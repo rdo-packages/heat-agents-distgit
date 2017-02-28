@@ -10,7 +10,11 @@ URL: https://github.com/openstack/heat-agents
 Obsoletes: openstack-heat-templates < 0.0.2
 Source0: https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz
 
+Patch0001:      0001-PATCH-Add-a-generic-option-to-configure-Ansible-callbacks-in-the-agent.patch
+
 BuildArch: noarch
+
+BuildRequires: git
 
 # Install all subpackages when main package is installed
 Requires: python-heat-agent = %{version}-%{release}
@@ -25,8 +29,7 @@ Requires: python-heat-agent-docker-cmd = %{version}-%{release}
 Heat software config agent and hook scripts
 
 %prep
-%setup -qn %{project}-%{upstream_version}
-
+%autosetup -n %{project}-%{upstream_version} -S git
 %build
 
 %install

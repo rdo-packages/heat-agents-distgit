@@ -1,0 +1,40 @@
+From 01f295fe487343ca6bc5d40c4638f1f6ca0c1302 Mon Sep 17 00:00:00 2001
+From: David Moreau-Simard <dms@redhat.com>
+Date: Tue, 28 Feb 2017 15:43:22 -0500
+Subject: [PATCH] Add a generic option to configure Ansible callbacks in the
+ agent
+
+Ansible callbacks [1] are used to hook into Ansible events such
+as running tasks. They can be used to alter the behavior of Ansible
+like providing helpful console output for tasks.
+
+[1]: http://docs.ansible.com/ansible/dev_guide/developing_plugins.html#callback-plugins
+
+Change-Id: I7e2c041ca359ab63140102c9d4a22914d9add228
+---
+ heat-config-ansible/install.d/hook-ansible.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/heat-config-ansible/install.d/hook-ansible.py b/heat-config-ansible/install.d/hook-ansible.py
+index b537e11..7e1cef6 100755
+--- a/heat-config-ansible/install.d/hook-ansible.py
++++ b/heat-config-ansible/install.d/hook-ansible.py
+@@ -53,6 +53,7 @@ def main(argv=sys.argv):
+     tags = c['options'].get('tags')
+     skip_tags = c['options'].get('skip_tags')
+     modulepath = c['options'].get('modulepath')
++    callback_plugins = c['options'].get('callback_plugins')
+
+     fn = os.path.join(WORKING_DIR, '%s_playbook.yaml' % c['id'])
+     vars_filename = os.path.join(WORKING_DIR, '%s_variables.json' % c['id'])
+@@ -88,6 +89,8 @@ def main(argv=sys.argv):
+     if modulepath:
+         cmd.insert(3, '--module-path')
+         cmd.insert(4, modulepath)
++    if callback_plugins:
++        os.environ['ANSIBLE_CALLBACK_PLUGINS'] = callback_plugins
+
+     log.debug('Running %s' % (' '.join(cmd),))
+     try:
+--
+1.9.1

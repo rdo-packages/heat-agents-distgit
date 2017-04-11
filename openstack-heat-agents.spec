@@ -2,8 +2,8 @@
 %global project heat-agents
 
 Name: openstack-heat-agents
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: Heat software config agent and hook scripts
 License: ASL 2.0
 URL: https://github.com/openstack/heat-agents
@@ -166,6 +166,9 @@ deployments to perform docker based configuration tasks.
 %{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
 
 %changelog
+* Tue Apr 11 2017 Alfredo Moralejo <amoralej@redhat.com> 1.0.1-1
+- Update to 1.0.1
+
 * Thu Mar 09 2017 Alfredo Moralejo <amoralej@redhat.com> 1.0.0-2
 - Add subpackage python-heat-agent-json-file
 

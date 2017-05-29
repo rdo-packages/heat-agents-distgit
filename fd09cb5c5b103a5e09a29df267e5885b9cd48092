@@ -16,6 +16,24 @@
       "revId": "fd09cb5c5b103a5e09a29df267e5885b9cd48092",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa7fdbe_d2fba245",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 62
+      },
+      "writtenOn": "2017-05-29T15:20:40Z",
+      "side": 1,
+      "message": "indeed: https://review.rdoproject.org/r/#/c/6540/3",
+      "parentUuid": "9aa7fdbe_92011a3c",
+      "revId": "fd09cb5c5b103a5e09a29df267e5885b9cd48092",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }

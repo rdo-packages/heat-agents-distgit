@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_92011a3c",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 289
+      },
+      "writtenOn": "2017-05-29T15:16:32Z",
+      "side": 1,
+      "message": "Looks like we don\u0027t have this package yet though..",
+      "revId": "fd09cb5c5b103a5e09a29df267e5885b9cd48092",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}

@@ -70,8 +70,8 @@ install -p -D -m 755 heat-config-docker-cmd/install.d/hook-docker-cmd.py %{build
 
 %package -n python-heat-agent
 Summary: Agent for performing Heat software deployments
-Requires: python-heatclient
-Requires: python-zaqarclient
+Requires: python2-heatclient
+Requires: python2-zaqarclient
 Requires: heat-cfntools
 Requires: os-collect-config
 Requires: os-apply-config

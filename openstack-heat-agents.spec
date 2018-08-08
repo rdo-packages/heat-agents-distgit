@@ -1,6 +1,10 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global project heat-agents
 
+%if 0%{?fedora} >= 28
+%global with_python3 1
+%endif
+
 Name: openstack-heat-agents
 Version: XXX
 Release: XXX
@@ -68,8 +72,9 @@ install -p -D -m 755 heat-config-docker-cmd/install.d/hook-docker-cmd.py %{build
 %files
 %doc README.rst
 
-%package -n python-heat-agent
+%package -n python2-heat-agent
 Summary: Agent for performing Heat software deployments
+%{?python_provide:%python_provide python2-heat-agent}
 Requires: python2-heatclient
 Requires: python2-zaqarclient
 Requires: heat-cfntools
@@ -78,11 +83,11 @@ Requires: os-apply-config
 Requires: os-refresh-config
 Requires: dib-utils
 
-%description -n python-heat-agent
+%description -n python2-heat-agent
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform script based configuration tasks.
 
-%files -n python-heat-agent
+%files -n python2-heat-agent
 %license LICENSE
 %{_bindir}/heat-config-notify
 %{_bindir}/heat-config-rebuild-deployed
@@ -94,76 +99,203 @@ deployments to perform script based configuration tasks.
 %dir %{_libexecdir}/heat-config/hooks
 %{_libexecdir}/heat-config/hooks/script
 
-%package -n python-heat-agent-puppet
+%if 0%{?with_python3}
+%package -n python3-heat-agent
+Summary: Agent for performing Heat software deployments
+%{?python_provide:%python_provide python3-heat-agent}
+Requires: python3-heatclient
+Requires: python3-zaqarclient
+Requires: heat-cfntools
+Requires: os-collect-config
+Requires: os-apply-config
+Requires: os-refresh-config
+Requires: dib-utils
+
+%description -n python3-heat-agent
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform script based configuration tasks.
+
+%files -n python2-heat-agent
+%license LICENSE
+%{_bindir}/heat-config-notify
+%{_bindir}/heat-config-rebuild-deployed
+%{_libexecdir}/os-apply-config/templates/etc/os-collect-config.conf
+%{_libexecdir}/os-apply-config/templates/var/run/heat-config/heat-config
+%{_libexecdir}/os-refresh-config/configure.d/20-os-apply-config
+%{_libexecdir}/os-refresh-config/configure.d/55-heat-config
+%dir %{_libexecdir}/heat-config
+%dir %{_libexecdir}/heat-config/hooks
+%{_libexecdir}/heat-config/hooks/script
+
+%endif
+
+
+%package -n python2-heat-agent-puppet
 Summary: Agent for performing Puppet based Heat software deployments
-Requires: python-heat-agent
+%{?python_provide:%python_provide python2-heat-agent-puppet}
+Requires: python2-heat-agent
 Requires: puppet
 
-%description -n python-heat-agent-puppet
+%description -n python2-heat-agent-puppet
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform puppet based configuration tasks.
 
-%files -n python-heat-agent-puppet
+%files -n python2-heat-agent-puppet
 %{_libexecdir}/heat-config/hooks/puppet
 
-%package -n python-heat-agent-ansible
+
+%if 0%{?with_python3}
+%package -n python3-heat-agent-puppet
+Summary: Agent for performing Puppet based Heat software deployments
+%{?python_provide:%python_provide python2-heat-agent-puppet}
+Requires: python3-heat-agent
+Requires: puppet
+
+%description -n python3-heat-agent-puppet
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform puppet based configuration tasks.
+
+%files -n python3-heat-agent-puppet
+%{_libexecdir}/heat-config/hooks/puppet
+%endif
+
+%package -n python2-heat-agent-ansible
 Summary: Agent for performing Ansible based Heat software deployments
-Requires: python-heat-agent
+%{?python_provide:%python_provide python2-heat-agent-puppet}
+Requires: python2-heat-agent
 Requires: ansible
 
-%description -n python-heat-agent-ansible
+%description -n python2-heat-agent-ansible
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform ansible based configuration tasks.
 
-%files -n python-heat-agent-ansible
+%files -n python2-heat-agent-ansible
 %{_libexecdir}/heat-config/hooks/ansible
 
-%package -n python-heat-agent-apply-config
+%if 0%{?with_python3}
+%package -n python3-heat-agent-ansible
+Summary: Agent for performing Ansible based Heat software deployments
+%{?python_provide:%python_provide python3-heat-agent-puppet}
+Requires: python3-heat-agent
+Requires: ansible
+
+%description -n python3-heat-agent-ansible
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform ansible based configuration tasks.
+
+%files -n python3-heat-agent-ansible
+%{_libexecdir}/heat-config/hooks/ansible
+%endif
+
+%package -n python2-heat-agent-apply-config
 Summary: Agent for performing os-apply-config based Heat software deployments
-Requires: python-heat-agent
+%{?python_provide:%python_provide python2-heat-agent-apply-config}
+Requires: python2-heat-agent
 Requires: os-apply-config
 
-%description -n python-heat-agent-apply-config
+%description -n python2-heat-agent-apply-config
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform os-apply-config based configuration tasks.
 
-%files -n python-heat-agent-apply-config
+%files -n python2-heat-agent-apply-config
 %{_libexecdir}/heat-config/hooks/apply-config
 
-%package -n python-heat-agent-hiera
-Summary: Agent for performing hiera based Heat software deployments
-Requires: python-heat-agent
+%if 0%{?with_python3}
+%package -n python3-heat-agent-apply-config
+Summary: Agent for performing os-apply-config based Heat software deployments
+%{?python_provide:%python_provide python3-heat-agent-apply-config}
+Requires: python3-heat-agent
+Requires: os-apply-config
 
-%description -n python-heat-agent-hiera
+%description -n python3-heat-agent-apply-config
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform os-apply-config based configuration tasks.
+
+%files -n python3-heat-agent-apply-config
+%{_libexecdir}/heat-config/hooks/apply-config
+%endif
+
+%package -n python2-heat-agent-hiera
+Summary: Agent for performing hiera based Heat software deployments
+%{?python_provide:%python_provide python2-heat-agent-hiera}
+Requires: python2-heat-agent
+
+%description -n python2-heat-agent-hiera
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform hiera based configuration tasks.
 
-%files -n python-heat-agent-hiera
+%files -n python2-heat-agent-hiera
 %{_libexecdir}/heat-config/hooks/hiera
 
-%package -n python-heat-agent-json-file
-Summary: Agent for performing json-file based Heat software deployments
-Requires: python-heat-agent
+%if 0%{?with_python3}
+%package -n python3-heat-agent-hiera
+Summary: Agent for performing hiera based Heat software deployments
+%{?python_provide:%python_provide python3-heat-agent-hiera}
+Requires: python3-heat-agent
 
-%description -n python-heat-agent-json-file
+%description -n python3-heat-agent-hiera
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform hiera based configuration tasks.
+
+%files -n python3-heat-agent-hiera
+%{_libexecdir}/heat-config/hooks/hiera
+%endif
+
+%package -n python2-heat-agent-json-file
+Summary: Agent for performing json-file based Heat software deployments
+%{?python_provide:%python_provide python2-heat-agent-json-file}
+Requires: python2-heat-agent
+
+%description -n python2-heat-agent-json-file
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform json-file based configuration tasks.
 
-%files -n python-heat-agent-json-file
+%files -n python2-heat-agent-json-file
 %{_libexecdir}/heat-config/hooks/json-file
 
-%package -n python-heat-agent-docker-cmd
+%if 0%{?with_python3}
+%package -n python3-heat-agent-json-file
+Summary: Agent for performing json-file based Heat software deployments
+%{?python_provide:%python_provide python3-heat-agent-json-file}
+Requires: python3-heat-agent
+
+%description -n python3-heat-agent-json-file
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform json-file based configuration tasks.
+
+%files -n python3-heat-agent-json-file
+%{_libexecdir}/heat-config/hooks/json-file
+%endif
+
+%package -n python2-heat-agent-docker-cmd
 Summary: Agent for performing Docker based Heat software deployments
-Requires: python-heat-agent
+%{?python_provide:%python_provide python2-heat-agent-docker-cmd}
+Requires: python3-heat-agent
 Requires: python-paunch
 
-%description -n python-heat-agent-docker-cmd
+%description -n python2-heat-agent-docker-cmd
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform docker based configuration tasks.
 
-%files -n python-heat-agent-docker-cmd
+%files -n python2-heat-agent-docker-cmd
 %{_libexecdir}/heat-config/hooks/docker-cmd
 %{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
+
+%if 0%{?with_python3}
+%package -n python3-heat-agent-docker-cmd
+Summary: Agent for performing Docker based Heat software deployments
+%{?python_provide:%python_provide python3-heat-agent-docker-cmd}
+Requires: python3-heat-agent
+Requires: python-paunch
+
+%description -n python3-heat-agent-docker-cmd
+This package installs and configures os-collect-config to allow Heat software
+deployments to perform docker based configuration tasks.
+
+%files -n python3-heat-agent-docker-cmd
+%{_libexecdir}/heat-config/hooks/docker-cmd
+%{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
+%endif
 
 %changelog
 

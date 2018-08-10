@@ -1,3 +1,16 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pydefault 3
+%else
+%global pydefault 2
+%endif
+
+%global pydefault_bin python%{pydefault}
+%global pydefault_sitelib %python%{pydefault}_sitelib
+%global pydefault_install %py%{pydefault}_install
+%global pydefault_build %py%{pydefault}_build
+# End of macros for py2/py3 compatibility
+
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global project heat-agents
 
@@ -13,13 +26,13 @@ Source0: https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version
 BuildArch: noarch
 
 # Install all subpackages when main package is installed
-Requires: python-heat-agent = %{version}-%{release}
-Requires: python-heat-agent-puppet = %{version}-%{release}
-Requires: python-heat-agent-ansible = %{version}-%{release}
-Requires: python-heat-agent-apply-config = %{version}-%{release}
-Requires: python-heat-agent-hiera = %{version}-%{release}
-Requires: python-heat-agent-json-file = %{version}-%{release}
-Requires: python-heat-agent-docker-cmd = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent-puppet = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent-ansible = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent-apply-config = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent-hiera = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent-json-file = %{version}-%{release}
+Requires: python%{pydefault}-heat-agent-docker-cmd = %{version}-%{release}
 
 %description
 Heat software config agent and hook scripts
@@ -68,7 +81,8 @@ install -p -D -m 755 heat-config-docker-cmd/install.d/hook-docker-cmd.py %{build
 %files
 %doc README.rst
 
-%package -n python-heat-agent
+%package -n python%{pydefault}-heat-agent
+%{?python_provide:%python_provide python%{pydefault}-heat-agent}
 Summary: Agent for performing Heat software deployments
 Requires: python2-heatclient
 Requires: python2-zaqarclient
@@ -78,11 +92,11 @@ Requires: os-apply-config
 Requires: os-refresh-config
 Requires: dib-utils
 
-%description -n python-heat-agent
+%description -n python%{pydefault}-heat-agent
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform script based configuration tasks.
 
-%files -n python-heat-agent
+%files -n python%{pydefault}-heat-agent
 %license LICENSE
 %{_bindir}/heat-config-notify
 %{_bindir}/heat-config-rebuild-deployed
@@ -94,74 +108,85 @@ deployments to perform script based configuration tasks.
 %dir %{_libexecdir}/heat-config/hooks
 %{_libexecdir}/heat-config/hooks/script
 
-%package -n python-heat-agent-puppet
+%package -n python%{pydefault}-heat-agent-puppet
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-puppet}
 Summary: Agent for performing Puppet based Heat software deployments
-Requires: python-heat-agent
+Requires: python%{pydefault}-heat-agent
 Requires: puppet
 
-%description -n python-heat-agent-puppet
+%description -n python%{pydefault}-heat-agent-puppet
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform puppet based configuration tasks.
 
-%files -n python-heat-agent-puppet
+%files -n python%{pydefault}-heat-agent-puppet
 %{_libexecdir}/heat-config/hooks/puppet
 
-%package -n python-heat-agent-ansible
+%package -n python%{pydefault}-heat-agent-ansible
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-ansible}
 Summary: Agent for performing Ansible based Heat software deployments
-Requires: python-heat-agent
+Requires: python%{pydefault}-heat-agent
+%if %{pydefault} == 2
 Requires: ansible
+%else
+Requires: ansible-python%{pydefault}
+%endif
 
-%description -n python-heat-agent-ansible
+
+%description -n python%{pydefault}-heat-agent-ansible
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform ansible based configuration tasks.
 
-%files -n python-heat-agent-ansible
+%files -n python%{pydefault}-heat-agent-ansible
 %{_libexecdir}/heat-config/hooks/ansible
 
-%package -n python-heat-agent-apply-config
+%package -n python%{pydefault}-heat-agent-apply-config
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-config}
 Summary: Agent for performing os-apply-config based Heat software deployments
-Requires: python-heat-agent
+Requires: python%{pydefault}-heat-agent
 Requires: os-apply-config
 
-%description -n python-heat-agent-apply-config
+%description -n python%{pydefault}-heat-agent-apply-config
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform os-apply-config based configuration tasks.
 
-%files -n python-heat-agent-apply-config
+%files -n python%{pydefault}-heat-agent-apply-config
 %{_libexecdir}/heat-config/hooks/apply-config
 
-%package -n python-heat-agent-hiera
+%package -n python%{pydefault}-heat-agent-hiera
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-hiera}
 Summary: Agent for performing hiera based Heat software deployments
-Requires: python-heat-agent
+Requires: python%{pydefault}-heat-agent
 
-%description -n python-heat-agent-hiera
+%description -n python%{pydefault}-heat-agent-hiera
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform hiera based configuration tasks.
 
-%files -n python-heat-agent-hiera
+%files -n python%{pydefault}-heat-agent-hiera
 %{_libexecdir}/heat-config/hooks/hiera
 
-%package -n python-heat-agent-json-file
+%package -n python%{pydefault}-heat-agent-json-file
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-json-file}
 Summary: Agent for performing json-file based Heat software deployments
-Requires: python-heat-agent
+Requires: python%{pydefault}-heat-agent
 
-%description -n python-heat-agent-json-file
+%description -n python%{pydefault}-heat-agent-json-file
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform json-file based configuration tasks.
 
-%files -n python-heat-agent-json-file
+%files -n python%{pydefault}-heat-agent-json-file
 %{_libexecdir}/heat-config/hooks/json-file
 
-%package -n python-heat-agent-docker-cmd
+%package -n python%{pydefault}-heat-agent-docker-cmd
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-docker-cmd}
 Summary: Agent for performing Docker based Heat software deployments
-Requires: python-heat-agent
-Requires: python-paunch
+Requires: python%{pydefault}-heat-agent
+Requires: python%{pydefault}-paunch
 
-%description -n python-heat-agent-docker-cmd
+%description -n python%{pydefault}-heat-agent-docker-cmd
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform docker based configuration tasks.
 
-%files -n python-heat-agent-docker-cmd
+%files -n python%{pydefault}-heat-agent-docker-cmd
 %{_libexecdir}/heat-config/hooks/docker-cmd
 %{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
 

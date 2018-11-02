@@ -40,6 +40,13 @@ Heat software config agent and hook scripts
 %prep
 %setup -qn %{project}-%{upstream_version}
 
+# Replace "env python" shebag to the correct python executable for the system
+# if we don't do that brp-mangle-shebangs will change it to python2
+for python_script in $(grep "/usr/bin/env python" . -rl)
+do
+    sed -i "s#/usr/bin/env python.*#/usr/bin/%{pydefault_bin}#g" $python_script
+done
+
 %build
 
 %install
@@ -84,6 +91,7 @@ install -p -D -m 755 heat-config-docker-cmd/install.d/hook-docker-cmd.py %{build
 %package -n python%{pydefault}-heat-agent
 %{?python_provide:%python_provide python%{pydefault}-heat-agent}
 Summary: Agent for performing Heat software deployments
+Requires: python%{pydefault}-requests
 Requires: python%{pydefault}-heatclient
 Requires: python%{pydefault}-zaqarclient
 Requires: heat-cfntools

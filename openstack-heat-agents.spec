@@ -161,7 +161,7 @@ deployments to perform os-apply-config based configuration tasks.
 %{_libexecdir}/heat-config/hooks/apply-config
 
 %package -n python%{pydefault}-heat-agent-hiera
-%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-hiera}
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-hiera}
 Summary: Agent for performing hiera based Heat software deployments
 Requires: python%{pydefault}-heat-agent
 
@@ -173,7 +173,7 @@ deployments to perform hiera based configuration tasks.
 %{_libexecdir}/heat-config/hooks/hiera
 
 %package -n python%{pydefault}-heat-agent-json-file
-%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-json-file}
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-json-file}
 Summary: Agent for performing json-file based Heat software deployments
 Requires: python%{pydefault}-heat-agent
 
@@ -185,7 +185,7 @@ deployments to perform json-file based configuration tasks.
 %{_libexecdir}/heat-config/hooks/json-file
 
 %package -n python%{pydefault}-heat-agent-docker-cmd
-%{?python_provide:%python_provide python%{pydefault}-heat-agent-apply-docker-cmd}
+%{?python_provide:%python_provide python%{pydefault}-heat-agent-docker-cmd}
 Summary: Agent for performing Docker based Heat software deployments
 Requires: python%{pydefault}-heat-agent
 Requires: python%{pydefault}-paunch

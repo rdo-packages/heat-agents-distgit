@@ -99,6 +99,7 @@ Requires: os-collect-config
 Requires: os-apply-config
 Requires: os-refresh-config
 Requires: dib-utils
+Obsoletes: python-heat-agent
 
 %description -n python%{pydefault}-heat-agent
 This package installs and configures os-collect-config to allow Heat software

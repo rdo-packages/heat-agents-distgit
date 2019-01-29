@@ -136,7 +136,7 @@ Requires: python%{pyver}-heat-agent
 %if %{pyver} == 2
 Requires: ansible
 %else
-Requires: ansible-python%{pyver}
+Requires: python3dist(ansible)
 %endif
 
 

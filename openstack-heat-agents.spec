@@ -2,7 +2,7 @@
 %global project heat-agents
 
 Name: openstack-heat-agents
-Version: 1.7.0
+Version: 1.7.1
 Release: 1%{?dist}
 Summary: Heat software config agent and hook scripts
 License: ASL 2.0
@@ -166,6 +166,9 @@ deployments to perform docker based configuration tasks.
 %{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
 
 %changelog
+* Thu Apr 02 2020 RDO <dev@lists.rdoproject.org> 1.7.1-1
+- Update to 1.7.1
+
 * Mon Aug 27 2018 RDO <dev@lists.rdoproject.org> 1.7.0-1
 - Update to 1.7.0
 

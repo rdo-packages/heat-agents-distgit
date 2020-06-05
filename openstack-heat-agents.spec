@@ -172,7 +172,6 @@ deployments to perform json-file based configuration tasks.
 %{?python_provide:%python_provide python3-heat-agent-docker-cmd}
 Summary: Agent for performing Docker based Heat software deployments
 Requires: python3-heat-agent
-Requires: python3-paunch
 
 %description -n python3-heat-agent-docker-cmd
 This package installs and configures os-collect-config to allow Heat software

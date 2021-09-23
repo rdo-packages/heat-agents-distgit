@@ -140,7 +140,7 @@ deployments to perform puppet based configuration tasks.
 %{?python_provide:%python_provide python3-heat-agent-ansible}
 Summary: Agent for performing Ansible based Heat software deployments
 Requires: python3-heat-agent
-Requires: python3dist(ansible)
+Requires: (python3dist(ansible) or ansible-core)
 
 
 %description -n python3-heat-agent-ansible

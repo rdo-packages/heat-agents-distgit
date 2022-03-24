@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90ce7daa_bc76535f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-03-24T09:07:07Z",
+      "side": 1,
+      "message": "missing os-apply-config, os-collect-config and os-refresh-config",
+      "revId": "5f06c9eb6e6d8426b59fa1c9c70d3f2b60446560",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}

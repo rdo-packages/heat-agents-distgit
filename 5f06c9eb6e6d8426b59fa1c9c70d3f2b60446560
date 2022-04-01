@@ -16,6 +16,23 @@
       "message": "missing os-apply-config, os-collect-config and os-refresh-config",
       "revId": "5f06c9eb6e6d8426b59fa1c9c70d3f2b60446560",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81d7945_907a9cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2022-04-01T12:11:53Z",
+      "side": 1,
+      "message": "needs os-apply-config",
+      "revId": "5f06c9eb6e6d8426b59fa1c9c70d3f2b60446560",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }

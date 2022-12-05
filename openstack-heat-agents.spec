@@ -104,6 +104,7 @@ Requires: os-collect-config
 Requires: os-apply-config
 Requires: os-refresh-config
 Requires: dib-utils
+Requires: hostname
 
 %description -n python3-heat-agent
 This package installs and configures os-collect-config to allow Heat software

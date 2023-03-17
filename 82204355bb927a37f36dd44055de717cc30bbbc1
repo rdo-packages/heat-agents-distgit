@@ -16,6 +16,23 @@
       "message": "nothing provides os-refresh | apply | collect -config ",
       "revId": "82204355bb927a37f36dd44055de717cc30bbbc1",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fe259bd_06d08ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-03-17T08:46:46Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "82204355bb927a37f36dd44055de717cc30bbbc1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }

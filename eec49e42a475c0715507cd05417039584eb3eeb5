@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4987b751_ddb1b049",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 682
+      },
+      "writtenOn": "2023-03-28T10:08:03Z",
+      "side": 1,
+      "message": "The logic calling hostname is used by puppet agent only but the code is installed by python3-heat-agent so adding the dependency to that base package makes sense.",
+      "revId": "eec49e42a475c0715507cd05417039584eb3eeb5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}

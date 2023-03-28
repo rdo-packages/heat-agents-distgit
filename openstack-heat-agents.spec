@@ -1,6 +1,7 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
-
+# add guard for OSP packages not carried
+%global rhosp 0
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global project heat-agents
 
@@ -126,7 +127,9 @@ deployments to perform script based configuration tasks.
 %{?python_provide:%python_provide python3-heat-agent-puppet}
 Summary: Agent for performing Puppet based Heat software deployments
 Requires: python3-heat-agent
+%if 0%{rhosp} == 0
 Requires: puppet
+%endif
 
 %description -n python3-heat-agent-puppet
 This package installs and configures os-collect-config to allow Heat software

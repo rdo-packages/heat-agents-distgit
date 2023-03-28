@@ -16,6 +16,23 @@
       "message": "The logic calling hostname is used by puppet agent only but the code is installed by python3-heat-agent so adding the dependency to that base package makes sense.",
       "revId": "eec49e42a475c0715507cd05417039584eb3eeb5",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a43a236_87157c7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-03-28T10:30:56Z",
+      "side": 1,
+      "message": "hostname command is actually used by heat-agents in https://github.com/openstack/heat-agents/blob/b4d249a204a89c03292eaf97d967ed2805a58b35/heat-config-puppet/install.d/hook-puppet.py#L41",
+      "revId": "eec49e42a475c0715507cd05417039584eb3eeb5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }

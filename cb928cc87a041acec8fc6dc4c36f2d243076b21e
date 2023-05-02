@@ -16,6 +16,29 @@
       "message": "We need this change in as it is breaking OSP 18.0 downstream, Can someone merge this pls.",
       "revId": "cb928cc87a041acec8fc6dc4c36f2d243076b21e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7832850d_44c8fe63",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2023-05-02T05:36:19Z",
+      "side": 1,
+      "message": "is the sub package still relevant for Downstream?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 37
+      },
+      "revId": "cb928cc87a041acec8fc6dc4c36f2d243076b21e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a44a6b3_37efa7be",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-05-03T10:14:01Z",
+      "side": 1,
+      "message": "@takashi Makes it sense to maintain python3-heat-agent-hiera as requirement after removing puppet agent?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 14
+      },
+      "revId": "de8c749f8ce96a0a7c934bc636ebdceebe5de0f1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}

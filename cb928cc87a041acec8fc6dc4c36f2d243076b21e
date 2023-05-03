@@ -39,6 +39,30 @@
       },
       "revId": "cb928cc87a041acec8fc6dc4c36f2d243076b21e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99164943_d5579d04",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-05-03T09:09:43Z",
+      "side": 1,
+      "message": "agree with Yatin, wouldn\u0027t it be better to conditionalized the entire -puppet subpackage?",
+      "parentUuid": "7832850d_44c8fe63",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 37
+      },
+      "revId": "cb928cc87a041acec8fc6dc4c36f2d243076b21e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }

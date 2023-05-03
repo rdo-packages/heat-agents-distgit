@@ -34,10 +34,10 @@ BuildRequires:  openstack-macros
 Requires: python3-heat-agent = %{version}-%{release}
 Requires: python3-heat-agent-ansible = %{version}-%{release}
 Requires: python3-heat-agent-apply-config = %{version}-%{release}
-Requires: python3-heat-agent-hiera = %{version}-%{release}
 Requires: python3-heat-agent-json-file = %{version}-%{release}
 Requires: python3-heat-agent-docker-cmd = %{version}-%{release}
 %if 0%{rhosp} == 0
+Requires: python3-heat-agent-hiera = %{version}-%{release}
 Requires: python3-heat-agent-puppet = %{version}-%{release}
 %endif
 

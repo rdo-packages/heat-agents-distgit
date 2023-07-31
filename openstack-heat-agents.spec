@@ -3,13 +3,15 @@
 # add guard for OSP packages not carried
 %global rhosp 0
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme
 %global project heat-agents
 
 Name: openstack-heat-agents
 Version: XXX
 Release: XXX
 Summary: Heat software config agent and hook scripts
-License: ASL 2.0
+License: Apache-2.0
 URL: https://github.com/openstack/heat-agents
 Obsoletes: openstack-heat-templates < 0.0.2
 Source0: https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz
@@ -46,7 +48,7 @@ Heat software config agent and hook scripts
 %if 0%{?sources_gpg} == 1
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
-%setup -qn %{project}-%{upstream_version}
+%autosetup -n %{project}-%{upstream_version} -S git
 
 # Replace "env python" shebag to the correct python executable for the system
 # if we don't do that brp-mangle-shebangs will change it to python2
@@ -54,6 +56,23 @@ for python_script in $(grep "/usr/bin/env python" . -rl)
 do
     sed -i "s#/usr/bin/env python.*#%{__python3}#g" $python_script
 done
+
+sed -i '/^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d' tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+%generate_buildrequires
+%pyproject_buildrequires -t -e %{default_toxenv}
 
 %build
 
@@ -97,11 +116,7 @@ install -p -D -m 755 heat-config-docker-cmd/install.d/hook-docker-cmd.py %{build
 %doc README.rst
 
 %package -n python3-heat-agent
-%{?python_provide:%python_provide python3-heat-agent}
 Summary: Agent for performing Heat software deployments
-Requires: python3-requests
-Requires: python3-heatclient
-Requires: python3-zaqarclient
 Requires: heat-cfntools
 Requires: os-collect-config
 Requires: os-apply-config
@@ -126,9 +141,7 @@ deployments to perform script based configuration tasks.
 %{_libexecdir}/heat-config/hooks/script
 
 %package -n python3-heat-agent-puppet
-%{?python_provide:%python_provide python3-heat-agent-puppet}
 Summary: Agent for performing Puppet based Heat software deployments
-Requires: python3-heat-agent
 Requires: puppet
 
 %description -n python3-heat-agent-puppet
@@ -139,11 +152,7 @@ deployments to perform puppet based configuration tasks.
 %{_libexecdir}/heat-config/hooks/puppet
 
 %package -n python3-heat-agent-ansible
-%{?python_provide:%python_provide python3-heat-agent-ansible}
 Summary: Agent for performing Ansible based Heat software deployments
-Requires: python3-heat-agent
-Requires: (python3dist(ansible) or ansible-core)
-
 
 %description -n python3-heat-agent-ansible
 This package installs and configures os-collect-config to allow Heat software
@@ -153,9 +162,7 @@ deployments to perform ansible based configuration tasks.
 %{_libexecdir}/heat-config/hooks/ansible
 
 %package -n python3-heat-agent-apply-config
-%{?python_provide:%python_provide python3-heat-agent-apply-config}
 Summary: Agent for performing os-apply-config based Heat software deployments
-Requires: python3-heat-agent
 Requires: os-apply-config
 
 %description -n python3-heat-agent-apply-config
@@ -166,10 +173,7 @@ deployments to perform os-apply-config based configuration tasks.
 %{_libexecdir}/heat-config/hooks/apply-config
 
 %package -n python3-heat-agent-hiera
-%{?python_provide:%python_provide python3-heat-agent-hiera}
 Summary: Agent for performing hiera based Heat software deployments
-Requires: python3-heat-agent
-
 %description -n python3-heat-agent-hiera
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform hiera based configuration tasks.
@@ -178,10 +182,7 @@ deployments to perform hiera based configuration tasks.
 %{_libexecdir}/heat-config/hooks/hiera
 
 %package -n python3-heat-agent-json-file
-%{?python_provide:%python_provide python3-heat-agent-json-file}
 Summary: Agent for performing json-file based Heat software deployments
-Requires: python3-heat-agent
-
 %description -n python3-heat-agent-json-file
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform json-file based configuration tasks.
@@ -190,10 +191,7 @@ deployments to perform json-file based configuration tasks.
 %{_libexecdir}/heat-config/hooks/json-file
 
 %package -n python3-heat-agent-docker-cmd
-%{?python_provide:%python_provide python3-heat-agent-docker-cmd}
 Summary: Agent for performing Docker based Heat software deployments
-Requires: python3-heat-agent
-
 %description -n python3-heat-agent-docker-cmd
 This package installs and configures os-collect-config to allow Heat software
 deployments to perform docker based configuration tasks.

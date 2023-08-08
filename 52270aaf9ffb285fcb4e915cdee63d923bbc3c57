@@ -22,6 +22,30 @@
       },
       "revId": "52270aaf9ffb285fcb4e915cdee63d923bbc3c57",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f60c016_5ff7a9d7",
+        "filename": "openstack-heat-agents.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-08-08T10:13:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27361803_067b71ab",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "52270aaf9ffb285fcb4e915cdee63d923bbc3c57",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }

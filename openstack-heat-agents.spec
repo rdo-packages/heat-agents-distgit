@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
 # add guard for OSP packages not carried
 %global rhosp 0
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -8,12 +9,16 @@
 %global project heat-agents
 
 Name: openstack-heat-agents
-Version: XXX
-Release: XXX
+Version: 7.0.0
+Release: 0.1%{?milestone}%{?dist}
 Summary: Heat software config agent and hook scripts
 License: Apache-2.0
 URL: https://github.com/openstack/heat-agents
 Source0: https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz
+#
+# patches_base=7.0.0.0rc1
+#
+
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 Source101:        https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz.asc
@@ -213,4 +218,7 @@ deployments to perform docker based configuration tasks.
 %{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
 
 %changelog
+* Thu Sep 14 2023 RDO <dev@lists.rdoproject.org> 7.0.0-0.1.0rc1
+- Update to 7.0.0.0rc1
+
 

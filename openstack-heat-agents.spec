@@ -123,7 +123,6 @@ Requires: heat-cfntools
 Requires: os-collect-config
 Requires: os-apply-config
 Requires: os-refresh-config
-Requires: dib-utils
 Requires: hostname
 
 %description -n python3-heat-agent

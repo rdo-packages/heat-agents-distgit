@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6925dcd_c9b6713e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-03-18T12:17:19Z",
+      "side": 1,
+      "message": "Problem is related to the repos configuration we use in this job and using module_hotfixes in validated.",
+      "revId": "faafa7c780210ebc8ec796f486055c81a92cd893",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 # add guard for OSP packages not carried
@@ -10,13 +9,11 @@
 
 Name: openstack-heat-agents
 Version: 8.0.0
-Release: 0.1%{?milestone}%{?dist}
+Release: 1%{?dist}
 Summary: Heat software config agent and hook scripts
 License: Apache-2.0
 URL: https://github.com/openstack/heat-agents
 Source0: https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz
-#
-# patches_base=8.0.0.0rc1
 #
 
 # Required for tarball sources verification
@@ -217,6 +214,9 @@ deployments to perform docker based configuration tasks.
 %{_libexecdir}/os-refresh-config/configure.d/50-heat-config-docker-cmd
 
 %changelog
+* Wed Apr 03 2024 RDO <dev@lists.rdoproject.org> 8.0.0-1
+- Update to 8.0.0
+
 * Mon Mar 18 2024 RDO <dev@lists.rdoproject.org> 8.0.0-0.1.0rc1
 - Update to 8.0.0.0rc1
 

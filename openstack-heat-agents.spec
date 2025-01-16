@@ -119,7 +119,6 @@ Summary: Agent for performing Heat software deployments
 Requires: python3-requests
 Requires: python3-heatclient
 Requires: python3-zaqarclient
-Requires: heat-cfntools
 Requires: os-collect-config
 Requires: os-apply-config
 Requires: os-refresh-config

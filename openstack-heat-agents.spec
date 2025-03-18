@@ -3,6 +3,8 @@
 # add guard for OSP packages not carried
 %global rhosp 0
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+%{?dlrn: %global tarsources heat-agents}
+%{!?dlrn: %global tarsources heat_agents}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme salt
 %global project heat-agents
@@ -13,10 +15,10 @@ Release: XXX
 Summary: Heat software config agent and hook scripts
 License: Apache-2.0
 URL: https://github.com/openstack/heat-agents
-Source0: https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz
+Source0: https://tarballs.openstack.org/%{project}/%{tarsources}-%{upstream_version}.tar.gz
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
-Source101:        https://tarballs.openstack.org/%{project}/%{project}-%{upstream_version}.tar.gz.asc
+Source101:        https://tarballs.openstack.org/%{project}/%{tarsources}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
 
@@ -47,7 +49,7 @@ Heat software config agent and hook scripts
 %if 0%{?sources_gpg} == 1
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
-%autosetup -n %{project}-%{upstream_version} -S git
+%autosetup -n %{tarsources}-%{upstream_version} -S git
 
 # Replace "env python" shebag to the correct python executable for the system
 # if we don't do that brp-mangle-shebangs will change it to python2

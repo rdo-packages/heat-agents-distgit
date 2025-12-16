@@ -214,3 +214,4 @@ deployments to perform docker based configuration tasks.
 
 %changelog
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/heat-agents/commit/7469a474eca90cfa226485720e46f0f521e5406b
